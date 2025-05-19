@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranav Jai S S - Software Development Intern Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" xintegrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Custom styles to complement Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Lighter, more modern background */
+            color: #1a202c; /* Darker text for better contrast */
+        }
+
+        .container-resume {
+            max-width: 950px;
+            margin: 30px auto;
+            background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+            border-radius: 16px; /* Softer, more modern rounding */
+            box-shadow: 0 10px 30px rgba(0, 77, 153, 0.1), 0 4px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            animation: fadeInResume 0.8s ease-out;
+        }
+
+        .header-resume {
+            background: linear-gradient(135deg, #004080 0%, #0059b3 100%); /* Professional blue gradient */
+            color: #ffffff;
+            padding: 40px 30px; /* Increased padding */
+            text-align: center;
+            border-bottom: 5px solid #ffc107; /* Accent color */
+        }
+
+        .header-resume h1 {
+            font-size: 2.6em; /* Larger name */
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .header-resume .subtitle {
+            font-size: 1.1em;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .contact-resume {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px 20px; /* Spacing for contact items */
+            margin-top: 20px;
+        }
+
+        .contact-resume span {
+            font-size: 0.95em;
+            display: inline-flex; /* Align icon and text */
+            align-items: center;
+            gap: 6px; /* Space between icon and text */
+            color: #e0f2fe; /* Lighter color for contact details on dark bg */
+            transition: color 0.3s ease;
+        }
+         .contact-resume span a {
+            color: #e0f2fe;
+            text-decoration: none;
+        }
+        .contact-resume span a:hover {
+            color: #ffc107;
+        }
+        .contact-resume span i {
+            color: #ffc107; /* Accent color for icons */
+        }
+
+        .section-resume {
+            padding: 25px 35px; /* Increased padding */
+            border-bottom: 1px solid #e2e8f0; /* Softer border */
+        }
+
+        .section-resume:last-child {
+            border-bottom: none;
+        }
+
+        .section-resume h2 {
+            font-size: 1.6em; /* Slightly larger section titles */
+            font-weight: 600;
+            color: #004080; /* Primary color for titles */
+            margin-bottom: 20px; /* More space below title */
+            position: relative;
+            padding-bottom: 8px; /* Space for the underline */
+        }
+
+        .section-resume h2::after {
+            content: '';
+            width: 60px; /* Longer underline */
+            height: 3px;
+            background: #ffc107; /* Accent color */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .section-resume p, .section-resume li {
+            font-size: 1em; /* Standardized font size */
+            margin-bottom: 12px; /* More spacing */
+            line-height: 1.7; /* Improved readability */
+            color: #2d3748; /* Slightly softer black */
+        }
+        .section-resume strong {
+            color: #1a202c;
+            font-weight: 600;
+        }
+
+        .section-resume ul {
+            list-style: none;
+            padding-left: 5px; /* Slight indent for visual hierarchy */
+        }
+
+        .section-resume ul li {
+            position: relative;
+            padding-left: 25px; /* Space for custom bullet */
+            margin-bottom: 10px;
+        }
+
+        .section-resume ul li::before {
+            content: '\f00c'; /* FontAwesome check icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #0059b3; /* Primary color for bullets */
+            position: absolute;
+            left: 0;
+            top: 3px; /* Align icon nicely */
+            font-size: 0.9em;
+        }
+
+        .item-card { /* For projects and experience */
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid #0059b3; /* Accent border */
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 77, 153, 0.08);
+        }
+
+        .item-card h3 {
+            font-size: 1.25em;
+            font-weight: 600;
+            color: #004080;
+            margin-bottom: 5px;
+        }
+
+        .item-card .date-location { /* For dates/location */
+            font-size: 0.85em;
+            font-style: italic;
+            color: #4a5568; /* Softer color for meta info */
+            margin-bottom: 10px;
+        }
+
+        .skills-grid-resume {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Slightly larger minmax */
+            gap: 15px;
+        }
+
+        .skills-grid-resume li {
+            background: #e0f2fe; /* Light blue background for skills */
+            color: #004080; /* Dark blue text */
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 0.95em;
+            font-weight: 500;
+            text-align: left; /* Align text to left for better readability */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            padding-left: 25px; /* Keep consistent with other list items */
+        }
+        .skills-grid-resume li::before { /* Using a different icon for skills */
+            content: '\f101'; /* FontAwesome angle-right for skills */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #0059b3;
+            position: absolute;
+            left: 0;
+            top: 14px; /* Adjust alignment */
+            font-size: 0.9em;
+        }
+
+
+        .skills-grid-resume li:hover {
+            background-color: #b3e0ff; /* Slightly darker on hover */
+            transform: scale(1.03); /* Subtle scale effect */
+        }
+        .skills-grid-resume li strong { /* For skill level like (Advanced) */
+            font-weight: 600;
+            color: #003366;
+        }
+
+
+        @keyframes fadeInResume {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container-resume {
+                margin: 20px;
+                border-radius: 12px;
+            }
+            .header-resume {
+                padding: 30px 20px;
+            }
+            .header-resume h1 {
+                font-size: 2.2em;
+            }
+            .header-resume .subtitle {
+                font-size: 1em;
+            }
+            .section-resume {
+                padding: 20px;
+            }
+            .section-resume h2 {
+                font-size: 1.4em;
+            }
+            .skills-grid-resume {
+                grid-template-columns: 1fr; /* Single column on smaller screens */
+            }
+            .contact-resume {
+                gap: 8px 15px;
+            }
+            .contact-resume span {
+                font-size: 0.9em;
+            }
+        }
+        @media (max-width: 480px) {
+            .header-resume h1 {
+                font-size: 1.9em;
+            }
+             .contact-resume {
+                flex-direction: column; /* Stack contact items vertically */
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container-resume">
+        <div class="header-resume">
+            <h1>Pranav Jai S S</h1>
+            <p class="subtitle">Aspiring Software Development Intern | Python | IoT | Healthcare APIs</p>
+            <div class="contact-resume">
+                <span><i class="fas fa-map-marker-alt"></i> Thanjavur, Tamil Nadu</span>
+                <span><i class="fas fa-phone-alt"></i> <a href="tel:+918925601423">+91-8925601423</a></span>
+                <span><i class="fas fa-envelope"></i> <a href="mailto:pranavjais2005@gmail.com">pranavjais2005@gmail.com</a></span>
+            </div>
+            <p class="mt-4 text-sm text-blue-100">Available for professional networking and internship opportunities.</p>
+        </div>
+
+        <div class="section-resume">
+            <h2><i class="fas fa-bullseye mr-2 text-yellow-500"></i>Objective</h2>
+            <p>Second-year B.Tech Computer Science student with demonstrated expertise in Python, IoT, and healthcare APIs, driven to amplify Netmeds’ “India Ki Pharmacy” vision through agile, user-centric solutions. Co-founded a team at SIH Hackathon 2024, delivering optimized algorithms for 20% traffic reduction, and built an IoT pharmacy monitor slashing energy costs by 12%. Eager to contribute scalable API-driven workflows and innovative telemetry to Netmeds’ Chennai team, enhancing e-pharmacy accessibility for 18,000+ pin codes.</p>
+        </div>
+
+        <div class="section-resume">
+            <h2><i class="fas fa-graduation-cap mr-2 text-yellow-500"></i>Education</h2>
+            <div class="item-card">
+                <h3>B.Tech in Computer Science</h3>
+                <p class="date-location">SASTRA University, Thanjavur, Tamil Nadu | <em>August 2023 – May 2027 (Expected)</em></p>
+                <ul>
+                    <li>Relevant Coursework: Data Structures (optimized algorithms by 30%), Database Management Systems, Design and Analysis of Algorithms, Digital System Design.</li>
+                    <li>Academic Project: Built an IoT-based pharmacy electricity monitor with Python and ESP8266, reducing energy waste by 12%.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-resume">
+            <h2><i class="fas fa-cogs mr-2 text-yellow-500"></i>Skills</h2>
+            <ul class="skills-grid-resume">
+                <li><strong>Python (Advanced):</strong> Built healthcare chatbots and IoT pipelines</li>
+                <li><strong>JavaScript (Basic):</strong> Crafted responsive web UIs for user apps</li>
+                <li><strong>Java (Intermediate):</strong> Developed IoT backend logic</li>
+                <li><strong>C++ (Intermediate):</strong> Programmed Arduino for AI-IoT systems</li>
+                <li><strong>DBMS:</strong> Designed schemas for healthcare data management</li>
+                <li><strong>Healthcare APIs:</strong> Integrated FHIR-inspired APIs for prescription queries</li>
+                <li><strong>Agile Methodology:</strong> Executed 2-week sprints with daily standups</li>
+                <li><strong>Soft Skills:</strong> Communication, collaboration, innovative problem-solving</li>
+                <li><strong>Tools:</strong> Git (30+ commits), Selenium, Matplotlib</li>
+            </ul>
+        </div>
+
+        <div class="section-resume">
+            <h2><i class="fas fa-project-diagram mr-2 text-yellow-500"></i>Projects</h2>
+            <div class="item-card">
+                <h3>IoT Pharmacy Electricity Monitor</h3>
+                <p class="date-location"><em>Technologies: Python, ESP8266, PZEM004T, Git | May 2025 – Present</em></p>
+                <ul>
+                    <li>Designed an IoT system to monitor pharmacy power usage, using ESP8266 and PZEM004T sensors for real-time telemetry, reducing energy costs by 12%.</li>
+                    <li>Developed Python data pipelines with DBMS integration to process 1,000+ sensor records in an Agile 2-week sprint, ensuring scalability.</li>
+                    <li><strong>Impact:</strong> Supported Netmeds’ cost-effective operations for sustainable healthcare delivery.</li>
+                </ul>
+            </div>
+            <div class="item-card">
+                <h3>WhatsApp Healthcare Chatbot</h3>
+                <p class="date-location"><em>Technologies: Python, Selenium, OpenAI API, Git | March 2025 – April 2025</em></p>
+                <ul>
+                    <li>Built an AI chatbot for patient queries on WhatsApp, integrating OpenAI API and Selenium for 90% response accuracy across 500+ daily interactions.</li>
+                    <li>Optimized responses with human-in-the-loop LLM tuning in Agile sprints, cutting errors by 25%.</li>
+                    <li><strong>Impact:</strong> Enhanced patient engagement, aligning with Netmeds’ teleconsultation platform.</li>
+                </ul>
+            </div>
+            <div class="item-card">
+                <h3>Course Progress Tracker</h3>
+                <p class="date-location"><em>Technologies: JavaScript, HTML, CSS, Python, OpenAI API, DBMS, Git | January 2025 – February 2025</em></p>
+                <ul>
+                    <li>Engineered a responsive web application to track student progress, leveraging JavaScript, HTML, and CSS for an intuitive UI with 2-second load times, optimized for cross-device accessibility.</li>
+                    <li>Developed a Python backend with OpenAI API and FHIR-inspired healthcare API integration, delivering data-driven, personalized study recommendations, boosting engagement by 30% for 50+ users.</li>
+                    <li>Utilized DBMS to manage 1,000+ user records with efficient schema design, ensuring scalable data retrieval, and adhered to Agile practices with daily standups for 30+ Git commits.</li>
+                    <li><strong>Value to Netmeds:</strong> My web development expertise crafts user-centric interfaces for Netmeds’ mobile app, enhancing customer experiences across 18,000+ pin codes. My Python, healthcare API, and DBMS skills drive scalable prescription processing and teleconsultation APIs, while Agile collaboration ensures seamless team integration. As an intern, I’ll accelerate Netmeds’ accessible healthcare mission with innovative frontend, backend, and data-driven solutions.</li>
+                </ul>
+            </div>
+            <div class="item-card">
+                <h3>AI-Controlled Pharmacy Alert</h3>
+                <p class="date-location"><em>Technologies: Python, C++, Arduino Nano, OpenAI API, Git | December 2024 – January 2025</em></p>
+                <ul>
+                    <li>Integrated OpenAI API with Arduino to control a pharmacy alert system for real-time notifications, achieving 100% command accuracy.</li>
+                    <li>Coded Python for serial communication and C++ for Arduino logic in an Agile sprint, ensuring reliability.</li>
+                    <li><strong>Impact:</strong> Demonstrated AI-IoT integration for Netmeds’ pharmacy operations.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-resume">
+            <h2><i class="fas fa-briefcase mr-2 text-yellow-500"></i>Experience</h2>
+            <div class="item-card">
+                <h3>Team Co-Founder, SIH Hackathon 2024</h3>
+                <p class="date-location"><em>Thanjavur, Tamil Nadu | August 2024 – September 2024</em></p>
+                <ul>
+                    <li>Co-founded a dynamic team of 5, fostering cross-functional collaboration to design optimized algorithms for traffic reduction and control, achieving a simulated 20% congestion reduction in the first round.</li>
+                    <li>Orchestrated Agile workflows with clear communication, leading daily standups and iterative feedback loops to refine data-driven solutions, enhancing team synergy and innovation.</li>
+                    <li>Leveraged analytical rigor and creative problem-solving to develop scalable, real-time traffic optimization models, aligning with Netmeds’ mission for efficient, user-centric systems.</li>
+                    <li><strong>Skills Gained:</strong> Leadership, effective communication, Agile collaboration, algorithm optimization.</li>
+                </ul>
+            </div>
+            <div class="item-card">
+                <h3>Intern, Embedded Systems Lab, SASTRA University</h3>
+                <p class="date-location"><em>Thanjavur, Tamil Nadu | May 2025 – Present</em></p>
+                <ul>
+                    <li>Collaborated in an Agile team of 4 to deploy an IoT pharmacy monitor, using Python and ESP8266 to cut energy usage by 12%.</li>
+                    <li>Built real-time data pipelines with DBMS integration, conducting 20+ unit tests for 15% error reduction.</li>
+                    <li>Contributed innovative telemetry ideas, enhancing team synergy in daily standups.</li>
+                    <li><strong>Skills Gained:</strong> Agile workflows, DBMS, debugging.</li>
+                </ul>
+            </div>
+            <div class="item-card">
+                <h3>Team Developer, Daksh AI Hackathon</h3>
+                <p class="date-location"><em>Thanjavur, Tamil Nadu | February 2025</em></p>
+                <ul>
+                    <li>Developed a “second brain” AI prototype with Python and OpenAI API in a 24-hour Agile sprint, achieving 85% query accuracy.</li>
+                    <li>Proposed novel data workflows, driving team innovation under tight deadlines.</li>
+                    <li><strong>Skills Gained:</strong> Rapid prototyping, Agile collaboration.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-resume">
+            <h2><i class="fas fa-certificate mr-2 text-yellow-500"></i>Certifications</h2>
+            <ul>
+                <li>Cybersecurity Basics, ACE Club SASTRA, December 2024</li>
+                <li>HP Aruba Networking Workshop, SASTRA University, November 2024</li>
+            </ul>
+        </div>
+
+        <div class="section-resume">
+            <h2><i class="fas fa-trophy mr-2 text-yellow-500"></i>Achievements</h2>
+            <ul>
+                <li>1st Round Qualifier, SIH Hackathon 2024: Co-led team to devise a traffic optimization algorithm, reducing congestion by 20%.</li>
+                <li>Daksh AI Hackathon Participant, 2025: Delivered an AI prototype in Agile sprints.</li>
+            </ul>
+        </div>
+
+        <div class="section-resume">
+            <h2><i class="fas fa-heart mr-2 text-yellow-500"></i>Interests</h2>
+            <ul>
+                <li>Exploring Netmeds’ healthcare API workflows for e-pharmacy innovation.</li>
+                <li>Researching AI-IoT integration for pharmacy automation.</li>
+            </ul>
+        </div>
+
+        <footer class="text-center py-6 bg-gray-50 border-t border-gray-200">
+            <p class="text-sm text-gray-600">&copy; 2025 Pranav Jai S S. All Rights Reserved.</p>
+            <p class="text-xs text-gray-500 mt-1">Designed with care for professional presentation.</p>
+        </footer>
+
+    </div>
+    <script>
+        // Placeholder for any JS interactions.
+        // Example: Smooth scroll, animations on scroll, etc.
+        console.log("Resume loaded and styled with Tailwind CSS and custom enhancements.");
+    </script>
+</body>
+</html>
+
